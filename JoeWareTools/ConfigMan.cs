@@ -187,7 +187,6 @@ namespace JoeWare.Tools
             var xPath = new XPathDocument(FileName);
 
             var nav = xPath.CreateNavigator();
-            var manager = new XmlNamespaceManager(nav.NameTable);
 
             var expression = string.Format("//ItemList[@name=\"{0}\"]/Item", listName);
             var myIt = nav.Select(expression);
@@ -222,7 +221,6 @@ namespace JoeWare.Tools
             var xPath = new XPathDocument(FileName);
 
             var nav = xPath.CreateNavigator();
-            var manager = new XmlNamespaceManager(nav.NameTable);
 
             var expression = string.Format("//ItemList[@name=\"{0}\"]/Item[@key=\"{1}\"]", listName, key);
             var myIt = nav.Select(expression);
@@ -285,7 +283,6 @@ namespace JoeWare.Tools
             JavaScriptSerializer serializer = new JavaScriptSerializer();
 
             var nav = xPath.CreateNavigator();
-            var manager = new XmlNamespaceManager(nav.NameTable);
 
             var expression = string.Format("//ItemList[@name=\"{0}\"]/Item[@key=\"{1}\"]", listName, key);
             var myIt = nav.Select(expression);
@@ -367,7 +364,6 @@ namespace JoeWare.Tools
             JavaScriptSerializer serializer = new JavaScriptSerializer();
 
             var nav = xPath.CreateNavigator();
-            var manager = new XmlNamespaceManager(nav.NameTable);
 
             var expression = string.Format("//ItemList[@name=\"{0}\"]/Item", listName);
             var myIt = nav.Select(expression);
