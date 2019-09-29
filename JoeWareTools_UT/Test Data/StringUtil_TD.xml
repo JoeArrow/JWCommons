@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestData>
+    
+    <ParseValue>
+        <Ordinal>1</Ordinal>
+        <Delimiter>;</Delimiter>
+        <Expected>test</Expected>
+        <ValueToParse>TestValue=</ValueToParse>
+        <FullString>TestValue=test;application=appName;TestValue=anotherValue;stage=1;TestValue=yetAnotherValue</FullString>
+    </ParseValue>
+
+    <ParseValue>
+        <Ordinal>2</Ordinal>
+        <Delimiter>;</Delimiter>
+        <Expected>anotherValue</Expected>
+        <ValueToParse>TestValue=</ValueToParse>
+        <FullString>TestValue=test;application=appName;TestValue=anotherValue;stage=1;TestValue=yetAnotherValue</FullString>
+    </ParseValue>
+
+    <ParseValue>
+        <Ordinal>-1</Ordinal>
+        <Delimiter>;</Delimiter>
+        <Expected>yetAnotherValue</Expected>
+        <ValueToParse>TestValue=</ValueToParse>
+        <FullString>TestValue=test;application=appName;TestValue=anotherValue;stage=1;TestValue=yetAnotherValue</FullString>
+    </ParseValue>
+
+    <ParseValue>
+        <Ordinal>1</Ordinal>
+        <Delimiter>;</Delimiter>
+        <Expected>appName</Expected>
+        <ValueToParse>application=</ValueToParse>
+        <FullString>TestValue=test;application=appName;TestValue=anotherValue;stage=1;TestValue=yetAnotherValue</FullString>
+    </ParseValue>
+
+    <ParseValue>
+        <Ordinal>1</Ordinal>
+        <Delimiter>;</Delimiter>
+        <Expected>TestApp</Expected>
+        <ValueToParse>application=</ValueToParse>
+        <FullString>application=TestApp</FullString>
+    </ParseValue>
+
+    <ParseValue>
+        <Ordinal>1</Ordinal>
+        <Delimiter>;</Delimiter>
+        <Expected></Expected>
+        <ValueToParse>application=</ValueToParse>
+        <FullString></FullString>
+    </ParseValue>
+
+    <!-- ************** -->
+
+    <IsDistinguishedName>
+        <Expected>True</Expected>
+        <TestValue>CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM</TestValue>
+    </IsDistinguishedName>
+
+    <IsDistinguishedName>
+        <Expected>False</Expected>
+        <TestValue>JN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM</TestValue>
+    </IsDistinguishedName>
+
+    <IsDistinguishedName>
+        <Expected>False</Expected>
+        <TestValue></TestValue>
+    </IsDistinguishedName>
+    
+    <!-- ************** -->
+
+    <IsGUID>
+        <Expected>True</Expected>
+        <TestValue>01f79e5e-0bf1-4f83-8aa4-79960cf4904a</TestValue>
+    </IsGUID>
+
+    <IsGUID>
+        <Expected>True</Expected>
+        <TestValue>01F79E5E-0BF1-4F83-8AA4-79960CF4904A</TestValue>
+    </IsGUID>
+
+    <IsGUID>
+        <Expected>False</Expected>
+        <TestValue>01F79E5E-0BF1-4F838-AA4-79960CF4904A</TestValue>
+    </IsGUID>
+
+    <IsGUID>
+        <Expected>False</Expected>
+        <TestValue>Benjamin Franklin Pierce</TestValue>
+    </IsGUID>
+
+    <IsGUID>
+        <Expected>False</Expected>
+        <TestValue></TestValue>
+    </IsGUID>
+
+    <!-- ************** -->
+
+    <IsExcludedSSN>
+        <SSN>000203333</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>201003333</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>301200000</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>555667777</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>666122576</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>121212121</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>100000000</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>123456789</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>987654321</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>123121234</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>234232345</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>345343456</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>456454567</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>890898901</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+
+    <IsExcludedSSN>
+        <SSN>901909012</SSN>
+        <Expected>True</Expected>
+    </IsExcludedSSN>
+    
+</TestData>

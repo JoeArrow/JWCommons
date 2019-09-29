@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestData>
+
+    <GetItem>
+        <Index>4</Index>
+        <Expected>Item 4</Expected>
+        <ListName>AddedProperties</ListName>
+    </GetItem>
+    
+</TestData>

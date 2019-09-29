@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestData>
+
+    <ReadEntryNative>
+        <EntryName>TestEntry</EntryName>
+        <ExpectedValue>Native Test Value</ExpectedValue>
+    </ReadEntryNative>
+    
+    <ReadEntryCustom>
+        <EntryName>TestEntry</EntryName>
+        <ConfigFile>Test.config</ConfigFile>
+        <ExpectedValue>Custom Test Value</ExpectedValue>
+    </ReadEntryCustom>
+
+    <!-- Get JSON Entry -->
+
+    <GetJSONEntry>
+        <EntryName>EntryDTO</EntryName>
+    </GetJSONEntry>
+
+    <!-- From List Based -->
+
+    <ReadFromKeyedListNative>
+        <Key>Dev</Key>
+        <Expected>Dev Item</Expected>
+        <ListName>KeyedList</ListName>
+    </ReadFromKeyedListNative>
+
+    <ReadFromKeyedListNative>
+        <Key>Missing</Key>
+        <Expected></Expected>
+        <ListName>KeyedList</ListName>
+    </ReadFromKeyedListNative>
+
+    <ReadFromKeyedListNative>
+        <Key>Dev</Key>
+        <Expected></Expected>
+        <ListName>KeyedListDup</ListName>
+    </ReadFromKeyedListNative>
+
+    <ReadFromKeyedListCustom>
+        <Key>Dev</Key>
+        <Expected>Dev Item</Expected>
+        <ListName>KeyedList</ListName>
+        <ConfigFile>Test.config</ConfigFile>
+    </ReadFromKeyedListCustom>
+
+    <ReadFromKeyedListCustom>
+        <Key>Intg</Key>
+        <Expected>Intg Item</Expected>
+        <ListName>KeyedList</ListName>
+        <ConfigFile>Test.config</ConfigFile>
+    </ReadFromKeyedListCustom>
+
+    <ReadFromKeyedListCustom>
+        <Key>Syst</Key>
+        <Expected>Syst Item</Expected>
+        <ListName>KeyedList</ListName>
+        <ConfigFile>Test.config</ConfigFile>
+    </ReadFromKeyedListCustom>
+
+    <ReadFromKeyedListCustom>
+        <Key>Prod</Key>
+        <Expected>Prod Item</Expected>
+        <ListName>KeyedList</ListName>
+        <ConfigFile>Test.config</ConfigFile>
+    </ReadFromKeyedListCustom>
+
+    <ReadFromKeyedObjListCustom>
+        <Key>Dev</Key>
+        <Expected>Dev Object Value</Expected>
+        <ListName>KeyedObjList</ListName>
+        <ConfigFile>Test.config</ConfigFile>
+    </ReadFromKeyedObjListCustom>
+
+    <ReadFromKeyedObjListCustom>
+        <Key>Dev</Key>
+        <Expected></Expected>
+        <ListName>KeyedObjList_Negative</ListName>
+        <ConfigFile>Test.config</ConfigFile>
+    </ReadFromKeyedObjListCustom>
+    
+    <!-- List Based -->
+
+    <ReadListNative>
+        <Index>3</Index>
+        <Expected>Item 3</Expected>
+        <ListName>AddedProperties</ListName>
+    </ReadListNative>
+    
+    <ReadList>
+        <Index>3</Index>
+        <Expected>Item 3</Expected>
+        <ConfigFile>Test.config</ConfigFile>
+        <ListName>AddedProperties</ListName>
+    </ReadList>
+    
+    <!-- JSON Based-->
+
+    <ReadObjList>
+        <Index>2</Index>
+        <ListName>JSONObjects</ListName>
+        <Expected>Syst Object Value</Expected>
+    </ReadObjList>
+
+    <ReadCustomObjList>
+        <Index>2</Index>
+        <ListName>MyList</ListName>
+        <ConfigName>Test.config</ConfigName>
+        <Expected>Syst Object Value</Expected>
+    </ReadCustomObjList>
+</TestData>

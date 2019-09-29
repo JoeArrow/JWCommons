@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestData>
+    
+    <Logging>
+        <EventID>10</EventID>
+        <ErrorCode>10</ErrorCode>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Verbose</TraceLevel>
+        <EventType>Information</EventType>
+        <EventSource>TestJWEvent</EventSource>
+        <Message>Message provided from test client</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>10</EventID>
+        <ErrorCode>20</ErrorCode>
+        <EventType>Error</EventType>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Verbose</TraceLevel>
+        <EventSource>TestJWEvent</EventSource>
+        <Message>Message provided from test client</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>10</EventID>
+        <ErrorCode>30</ErrorCode>
+        <EventType>Warning</EventType>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Verbose</TraceLevel>
+        <EventSource>TestJWEvent</EventSource>
+        <Message>Message provided from test client</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>10</EventID>
+        <ErrorCode>10</ErrorCode>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Verbose</TraceLevel>
+        <EventType>Information</EventType>
+        <EventSource>TestApp</EventSource>
+        <Message>Information Message</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>20</EventID>
+        <ErrorCode>10</ErrorCode>
+        <EventType>Warning</EventType>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Warning</TraceLevel>
+        <EventSource>TestApp</EventSource>
+        <Message>Warning Message</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>30</EventID>
+        <ErrorCode>10</ErrorCode>
+        <EventType>Error</EventType>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Error</TraceLevel>
+        <Message>Error Message</Message>
+        <EventSource>TestApp</EventSource>
+    </Logging>
+
+    <Logging>
+        <EventID>40</EventID>
+        <ErrorCode>10</ErrorCode>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Verbose</TraceLevel>
+        <EventSource>TestApp</EventSource>
+        <EventType>FailureAudit</EventType>
+        <Message>FailureAudit Message</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>50</EventID>
+        <ErrorCode>10</ErrorCode>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Verbose</TraceLevel>
+        <EventSource>TestApp</EventSource>
+        <EventType>SuccessAudit</EventType>
+        <Message>SuccessAudit Message</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>50</EventID>
+        <ErrorCode>10</ErrorCode>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Warning</TraceLevel>
+        <EventSource>TestApp</EventSource>
+        <EventType>SuccessAudit</EventType>
+        <Message>SuccessAudit Message</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>50</EventID>
+        <ErrorCode>10</ErrorCode>
+        <TraceLevel>Error</TraceLevel>
+        <Category>SystemEvent</Category>
+        <EventSource>TestApp</EventSource>
+        <EventType>SuccessAudit</EventType>
+        <Message>SuccessAudit Message</Message>
+    </Logging>
+
+    <Logging>
+        <EventID>10</EventID>
+        <ErrorCode>10</ErrorCode>
+        <EventSource></EventSource>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Verbose</TraceLevel>
+        <EventType>Information</EventType>
+        <Message>Information Message</Message>
+    </Logging>
+    
+    <!-- *************** -->
+
+    <CreateEventSource>
+        <EventSource>BogusSource</EventSource>
+    </CreateEventSource>
+    
+    <!-- *************** -->
+
+    <LoggingAllProperties>
+        <EventID>10</EventID>
+        <ErrorCode>10</ErrorCode>
+        <EventSource></EventSource>
+        <Category>SystemEvent</Category>
+        <TraceLevel>Verbose</TraceLevel>
+        <EventType>Information</EventType>
+        <Message>Information Message</Message>
+
+        <User>TestUser</User>
+        <Action>Fix It</Action>
+        <AppName>The App</AppName>
+        <TargetUser>Some User</TargetUser>
+        <Attribute>The Attribute</Attribute>
+        <CourseOfAction>Fix it</CourseOfAction>
+        <TechMessage>You know what went wrong</TechMessage>
+        <EndUserMessage>How should we know?</EndUserMessage>
+    </LoggingAllProperties>
+    
+</TestData>
