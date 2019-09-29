@@ -5,18 +5,6 @@
         <EntryName>TestEntry</EntryName>
         <ExpectedValue>Native Test Value</ExpectedValue>
     </ReadEntryNative>
-    
-    <ReadEntryCustom>
-        <EntryName>TestEntry</EntryName>
-        <ConfigFile>Test.config</ConfigFile>
-        <ExpectedValue>Custom Test Value</ExpectedValue>
-    </ReadEntryCustom>
-
-    <!-- Get JSON Entry -->
-
-    <GetJSONEntry>
-        <EntryName>EntryDTO</EntryName>
-    </GetJSONEntry>
 
     <!-- From List Based -->
 

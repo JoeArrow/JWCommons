@@ -148,14 +148,12 @@ namespace JoeWare.Tools
 
         public static bool IsDistinguishedName(string testVal)
         {
-            bool retVal = false;
-
-            Regex r = new Regex(@"^(([OoCc][UuNn][=]['\w\d\s\-\@.&amp;]+,)+([Oo][Uu][=]['\w\d\s\-\&amp;]+,)*([Dd][Cc][=]['\w\d\s\-\&amp;]+[,]*){2,})$");
-            Match m = null;
+            var retVal = false;
+            var r = new Regex(@"^(([OoCc][UuNn][=]['\w\d\s\-\@.&amp;]+,)+([Oo][Uu][=]['\w\d\s\-\&amp;]+,)*([Dd][Cc][=]['\w\d\s\-\&amp;]+[,]*){2,})$");
 
             try
             {
-                m = r.Match(testVal);
+                var m = r.Match(testVal);
                 retVal = m.Success;
             }
             catch(Exception)

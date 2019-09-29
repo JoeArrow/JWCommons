@@ -84,22 +84,16 @@ namespace JoeWareTools_UT
         }
 
         // ------------------------------------------------
-
-        [DeploymentItem("Test Data\\ConfigMan_TD.xml"),
+        
+        [TestMethod, 
          DeploymentItem("Test Data\\Test.config"),
-         DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
-                    "|DataDirectory|\\ConfigMan_TD.xml",
-                    "ReadEntryCustom",
-                    DataAccessMethod.Sequential),
-         TestMethod]
-        public void ReadEntry_Custom_JoeWareTools_ConfigMan_Reads_An_Entry_From_A_Custom_Config_File()
+         DataRow("Test.config", "TestEntry", "Custom Test Value")]
+        public void ReadEntry_Custom_JoeWareTools_ConfigMan_Reads_An_Entry_From_A_Custom_Config_File(string cfgFile, 
+                                                                                                     string entryName,
+                                                                                                     string expected)
         {
             // -------
             // Arrange
-
-            var cfgFile = Convert.ToString(TestContext.DataRow["ConfigFile"]);
-            var entryName = Convert.ToString(TestContext.DataRow["EntryName"]);
-            var expected = Convert.ToString(TestContext.DataRow["ExpectedValue"]);
 
             var cfg = new ConfigMan(cfgFile);
 
@@ -126,19 +120,13 @@ namespace JoeWareTools_UT
 
         // ------------------------------------------------
 
-        [DeploymentItem("Test Data\\ConfigMan_TD.xml"),
-         DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
-                    "|DataDirectory|\\ConfigMan_TD.xml",
-                    "GetJSONEntry",
-                    DataAccessMethod.Sequential),
-         TestMethod]
-        public void GetJSONEntry_Native_JoeWareTools_ConfigMan_Deserializes_An_Entry_From_The_Native_Config_File()
+        [TestMethod, DataRow("EntryDTO")]
+        public void GetJSONEntry_Native_JoeWareTools_ConfigMan_Deserializes_An_Entry_From_The_Native_Config_File(string entryName)
         {
             // -------
             // Arrange
 
             var cfg = new ConfigMan();
-            var entryName = Convert.ToString(TestContext.DataRow["EntryName"]);
 
             // ---
             // Act
