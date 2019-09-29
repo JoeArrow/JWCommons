@@ -59,8 +59,8 @@ namespace JoeWare.Tools
                 return string.Empty;
             }
 
-            string strRetVal = string.Empty;
-            int iLength = parseVal.Length;
+            var strRetVal = string.Empty;
+            var iLength = parseVal.Length;
 
             if(ordinal == -1)
             {
@@ -209,21 +209,21 @@ namespace JoeWare.Tools
             // This picks up any combination including all of the same digit
             // I wish that I had a shorthand for this match...
 
-            Regex sameDigitRegex = new Regex(@"([0]{3}|[1]{3}|[2]{3}|[3]{3}|[4]{3}|[5]{3}|[6]{3}|[7]{3}|[8]{3}|[9]{3})" +
-                                             @"([0]{2}|[1]{2}|[2]{2}|[3]{2}|[4]{2}|[5]{2}|[6]{2}|[7]{2}|[8]{2}|[9]{2})" +
-                                             @"([0]{4}|[1]{4}|[2]{4}|[3]{4}|[4]{4}|[5]{4}|[6]{4}|[7]{4}|[8]{4}|[9]{4})");
+            var sameDigitRegex = new Regex(@"([0]{3}|[1]{3}|[2]{3}|[3]{3}|[4]{3}|[5]{3}|[6]{3}|[7]{3}|[8]{3}|[9]{3})" +
+                                           @"([0]{2}|[1]{2}|[2]{2}|[3]{2}|[4]{2}|[5]{2}|[6]{2}|[7]{2}|[8]{2}|[9]{2})" +
+                                           @"([0]{4}|[1]{4}|[2]{4}|[3]{4}|[4]{4}|[5]{4}|[6]{4}|[7]{4}|[8]{4}|[9]{4})");
 
-            Regex startWithSixes = new Regex(@"^([6]{3})([\d]{2})([\d]{4})");     // 666-XX-XXXX MOTB!
+            var startWithSixes = new Regex(@"^([6]{3})([\d]{2})([\d]{4})");     // 666-XX-XXXX MOTB!
 
-            Regex starstWithZero = new Regex(@"^([0]{3})([\d]{2})([\d]{4})");     // 000-XX-XXXX
-            Regex middleZero = new Regex(@"^([\d]{3})([0]{2})([\d]{4})");         // XXX-00-XXXX
-            Regex endsWithZero = new Regex(@"^([\d]{3})([\d]{2})([0]{4})");       // XXX-XX-0000
+            var starstWithZero = new Regex(@"^([0]{3})([\d]{2})([\d]{4})");     // 000-XX-XXXX
+            var middleZero = new Regex(@"^([\d]{3})([0]{2})([\d]{4})");         // XXX-00-XXXX
+            var endsWithZero = new Regex(@"^([\d]{3})([\d]{2})([0]{4})");       // XXX-XX-0000
 
-            Regex alternatingDigits = new Regex(@"^(\d{2})\1{3,}");               // Alternating digits ex. XYX-YX-YXYX
+            var alternatingDigits = new Regex(@"^(\d{2})\1{3,}");               // Alternating digits ex. XYX-YX-YXYX
 
-            if(string.IsNullOrEmpty(val) ||                                       // Value Null or Empty
-               val.Length > 9 ||                                                  // Value too long
-               val.Length < 6 ||                                                  // Value too short               
+            if(string.IsNullOrEmpty(val) ||                                     // Value Null or Empty
+               val.Length > 9 ||                                                // Value too long
+               val.Length < 6 ||                                                // Value too short               
                middleZero.Match(val).Success ||
                endsWithZero.Match(val).Success ||
                starstWithZero.Match(val).Success ||

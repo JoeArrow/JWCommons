@@ -59,11 +59,7 @@ namespace JoeWare.Tools
         ///     Accessor
         /// </summary>
 
-        public IDictionary AppSettings
-        {
-            get;
-            private set;
-        }
+        public IDictionary AppSettings { get; private set; }
 
         // ------------------------------------------------
         /// <summary>
@@ -113,7 +109,7 @@ namespace JoeWare.Tools
 
             if(string.IsNullOrEmpty(cfgFileName))
             {
-                string msg = string.Format("Unable to load the configuration file: '{0}'", FileName);
+                var msg = string.Format("Unable to load the configuration file: '{0}'", FileName);
 
                 var evt = new JWareEvent(10003, EVENT_SOURCE, msg);
 
@@ -129,14 +125,14 @@ namespace JoeWare.Tools
 
                 try
                 {
-                    XmlTextReader reader = new XmlTextReader(FileName);
+                    var reader = new XmlTextReader(FileName);
                     xDoc.Load(reader);
                     reader.Close();
                     AppSettings = GetConfig("appSettings");
                 }
                 catch(Exception ex)
                 {
-                    string msg = string.Format("Unable to load the configuration file: '{0}'", FileName);
+                    var msg = string.Format("Unable to load the configuration file: '{0}'", FileName);
 
                     var evt = new JWareEvent(10002, EVENT_SOURCE, msg, ex)
                     {
@@ -280,7 +276,7 @@ namespace JoeWare.Tools
             var retVal = null as T;
             var foundItems = new List<T>();
             var xPath = new XPathDocument(FileName);
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
 
             var nav = xPath.CreateNavigator();
 
@@ -361,7 +357,7 @@ namespace JoeWare.Tools
         {
             var retVal = new List<T>();
             var xPath = new XPathDocument(FileName);
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
 
             var nav = xPath.CreateNavigator();
 
