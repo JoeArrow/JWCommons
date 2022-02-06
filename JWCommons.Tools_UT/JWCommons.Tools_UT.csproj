@@ -72,7 +72,7 @@
     <None Include="Test Script\RunTests.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JoeWareTools\JWCommons.Tools.csproj">
+    <ProjectReference Include="..\JWCommons.Tools\JWCommons.Tools.csproj">
       <Project>{61729d63-2def-4381-ab58-a89a3e54f7e9}</Project>
       <Name>JWCommons.Tools</Name>
     </ProjectReference>
