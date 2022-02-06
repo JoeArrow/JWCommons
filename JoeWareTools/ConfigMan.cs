@@ -1,4 +1,4 @@
-﻿#region Copyright © 2017 JoeWare
+﻿#region Copyright © 2017 JWCommons
 //
 // All rights reserved. Reproduction or transmission in whole or in part, in
 // any form or by any means, electronic, mechanical, or otherwise, is prohibited
@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Web.Script.Serialization;
 
-using JoeWare.Tools.Logging;
+using JWCommons.Tools.Logging;
 
 // --------------------------------------------------------
 /// <summary>
@@ -38,13 +38,13 @@ using JoeWare.Tools.Logging;
 ///     Next available error ID: 10006
 /// </remarks>
 
-namespace JoeWare.Tools
+namespace JWCommons.Tools
 {
     public class ConfigMan
     {
         private XmlDocument xDoc;
 
-        private const string EVENT_SOURCE = "JoeWareTools";
+        private const string EVENT_SOURCE = "JWCommons.Tools";
 
         // ------------------------------------------------
         /// <summary>
@@ -111,13 +111,15 @@ namespace JoeWare.Tools
             {
                 var msg = string.Format("Unable to load the configuration file: '{0}'", FileName);
 
-                var evt = new JWareEvent(10003, EVENT_SOURCE, msg);
+                var evt = new JWEvent(10003, EVENT_SOURCE, msg)
+                {
+                    MethodName = "Initialize()",
+                    SourceFile = "ConfigMan.cs"
+                };
 
-                evt.MethodName = "Initialize()";
-                evt.SourceFile = "ConfigMan.cs";
                 evt.Log();
 
-                throw (evt);
+                throw evt;
             }
             else
             {
@@ -134,12 +136,12 @@ namespace JoeWare.Tools
                 {
                     var msg = string.Format("Unable to load the configuration file: '{0}'", FileName);
 
-                    var evt = new JWareEvent(10002, EVENT_SOURCE, msg, ex)
+                    var evt = new JWEvent(10002, EVENT_SOURCE, msg, ex)
                     {
                         MethodName = "Initialize()",
                         SourceFile = "ConfigMan.cs"
                     };
-                    
+
                     evt.Log();
                     throw (evt);
                 }
@@ -152,7 +154,7 @@ namespace JoeWare.Tools
         ///     be added to the Config File configSections
         ///     
         ///     <configSections>
-        ///         <section name="ListSection" type="JoeWare.Tools.ConfigList.ListSection" />
+        ///         <section name="ListSection" type="JWCommons.Tools.ConfigList.ListSection" />
         ///     </configSections>
         ///    
         ///     Then a new Section can be added to the config
@@ -244,7 +246,7 @@ namespace JoeWare.Tools
                 parameters.Add(new MethodParameter() { Name = "listName", Value = listName });
                 parameters.Add(new MethodParameter() { Name = "key", Value = key });
 
-                var evt = new JWareEvent(10005, EVENT_SOURCE, msg.ToString())
+                var evt = new JWEvent(10005, EVENT_SOURCE, msg.ToString())
                 {
                     Parameters = parameters,
                     MethodName = "ReadFromKeyedList()",
@@ -306,7 +308,7 @@ namespace JoeWare.Tools
                 parameters.Add(new MethodParameter() { Name = "listName", Value = listName });
                 parameters.Add(new MethodParameter() { Name = "key", Value = key });
 
-                var evt = new JWareEvent(10006, EVENT_SOURCE, msg.ToString())
+                var evt = new JWEvent(10006, EVENT_SOURCE, msg.ToString())
                 {
                     Parameters = parameters,
                     MethodName = "ReadFromKeyedObjList()",
@@ -324,7 +326,7 @@ namespace JoeWare.Tools
         ///     be added to the Config File configSections
         ///     
         ///     <configSections>
-        ///         <section name="ListSection" type="JoeWare.Tools.ConfigList.ListSection" />
+        ///         <section name="ListSection" type="JWCommons.Tools.ConfigList.ListSection" />
         ///     </configSections>
         ///     
         ///     In the Client code, a class should be created to deserialize into:
@@ -345,10 +347,10 @@ namespace JoeWare.Tools
         ///     </JSONList>
         ///     
         ///     Then the List of Items can be read with code like this:
-        ///<!--     
+        ///     
         ///     ReadJSONList<T>(|"ItemListName"|)
         ///     ReadJSONList<TestClass>("NameForThisList") for the list above.
-        ///-->
+        ///
         /// </summary>
         /// <param name="listName"></param>
         /// <returns></returns>
@@ -372,7 +374,7 @@ namespace JoeWare.Tools
                 }
                 catch(Exception exp)
                 {
-                    var evt = new JWareEvent(10007, EVENT_SOURCE, exp.Message, exp)
+                    var evt = new JWEvent(10007, EVENT_SOURCE, exp.Message, exp)
                     {
                         SourceFile = "ConfigMan.cs",
                         MethodName = "ReadListJSON()",
@@ -404,7 +406,7 @@ namespace JoeWare.Tools
             }
             catch(Exception exp)
             {
-                var evt = new JWareEvent(10004, EVENT_SOURCE, exp.Message, exp)
+                var evt = new JWEvent(10004, EVENT_SOURCE, exp.Message, exp)
                 {
                     SourceFile = "ConfigMan.cs",
                     MethodName = "ReadListJSON()",
@@ -445,7 +447,7 @@ namespace JoeWare.Tools
                     if(node.LocalName.Trim().Equals(elementName.Trim(), StringComparison.CurrentCultureIgnoreCase))
                     {
                         DictionarySectionHandler handler = new DictionarySectionHandler();
-                        retVal = (IDictionary)handler.Create(null, null, node);
+                        retVal = (IDictionary) handler.Create(null, null, node);
                     }
                 }
             }
@@ -453,7 +455,7 @@ namespace JoeWare.Tools
             {
                 string msg = string.Format("The Config file entry is missing for '{0}'", elementName);
 
-                var evt = new JWareEvent(10000, EVENT_SOURCE, msg, ex)
+                var evt = new JWEvent(10000, EVENT_SOURCE, msg, ex)
                 {
                     SourceFile = "ConfigMan.cs",
                     MethodName = "string this[ string key ]",

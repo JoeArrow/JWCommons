@@ -36,13 +36,13 @@
                         
                         <ModulePaths>
                             <Exclude>
-                                <ModulePath>.*JoeWareTools_UT\..*</ModulePath>
+                                <ModulePath>.*JWCommons.Tools_UT\..*</ModulePath>
                             </Exclude>
                         </ModulePaths>
 
                         <Functions>
                             <Exclude>
-                                <Function>^JoeWare.Tools.ConfigList\..*</Function>
+                                <Function>^JWCommons.Tools.ConfigList\..*</Function>
                             </Exclude>
                         </Functions>
 

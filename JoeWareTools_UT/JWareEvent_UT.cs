@@ -1,4 +1,4 @@
-﻿#region Copyright © 2017 JoeWare
+﻿#region Copyright © 2017 JWCommons
 //
 // All rights reserved. Reproduction or transmission in whole or in part, in
 // any form or by any means, electronic, mechanical, or otherwise, is prohibited
@@ -15,13 +15,13 @@ using System.Web.SessionState;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using JoeWare.Tools.Logging;
+using JWCommons.Tools.Logging;
 
-namespace JoeWareTools_UT
+namespace JWCommonsTools_UT
 {
     // ----------------------------------------------------
     /// <summary>
-    ///     Summary description for JoeWareTools_UT
+    ///     Summary description for JWCommonsTools_UT
     /// </summary>
 
     [TestClass]
@@ -106,7 +106,7 @@ namespace JoeWareTools_UT
             var traceLevel = (TraceLevel)Enum.Parse(typeof(TraceLevel), Convert.ToString(TestContext.DataRow["TraceLevel"]));
             var eventType = (EventLogEntryType)Enum.Parse(typeof(EventLogEntryType), Convert.ToString(TestContext.DataRow["EventType"]));
 
-            var evt = new JWareEvent(eventID, eventSource, message)
+            var evt = new JWEvent(eventID, eventSource, message)
             {
                 Category = category,
                 ErrorCode = errorCode,
@@ -157,7 +157,7 @@ namespace JoeWareTools_UT
             var traceLevel = (TraceLevel)Enum.Parse(typeof(TraceLevel), Convert.ToString(TestContext.DataRow["TraceLevel"]));
             var eventType = (EventLogEntryType)Enum.Parse(typeof(EventLogEntryType), Convert.ToString(TestContext.DataRow["EventType"]));
 
-            var evt = new JWareEvent(eventID, eventSource, message)
+            var evt = new JWEvent(eventID, eventSource, message)
             {
                 Category = category,
                 ErrorCode = errorCode,
@@ -202,7 +202,7 @@ namespace JoeWareTools_UT
 
             var eventSource = Convert.ToString(TestContext.DataRow["EventSource"]);
 
-            var evt = new JWareEvent(10, eventSource);
+            var evt = new JWEvent(10, eventSource);
 
             // ---
             // Act

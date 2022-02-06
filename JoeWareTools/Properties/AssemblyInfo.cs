@@ -13,8 +13,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyTitle("JoeWareTools")]
-[assembly: AssemblyProduct("JoeWareTools")]
+[assembly: AssemblyTitle("JWCommonsTools")]
+[assembly: AssemblyProduct("JWCommonsTools")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 
 // --------------------------------------------------------

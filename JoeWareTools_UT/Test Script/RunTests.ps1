@@ -2,9 +2,9 @@
 # The purpose of this Caller Function is to make a call to
 # the Test Engine with specific inputs.
 
-Param([string] $testContainer= "L:\Usage\_Source\C#\JoeWareTools\JoeWareTools_UT\bin\Debug\JoeWareTools_UT.dll", 
+Param([string] $testContainer= "L:\Usage\_Source\C#\JoeWareTools\JoeWareTools_UT\bin\Debug\JWCommons.Tools_UT.dll", 
       [string] $specificArguments = "",
-      [string] $outputFile = "L:\Usage\TestOutput\JoeWare_Tools.txt")
+      [string] $outputFile = "L:\Usage\TestOutput\JWCommons.Tools.txt")
 
 # ----------------------------------------
 # Setup Variables pointing to test engines

@@ -8,7 +8,7 @@
                     <CodeCoverage>
                         <ModulePaths>
                             <Exclude>
-                                <ModulePath>.*JoeWareTools_UT.dll$</ModulePath>
+                                <ModulePath>.*JWCommons.Tools_UT.dll$</ModulePath>
                             </Exclude>
                         </ModulePaths>
 

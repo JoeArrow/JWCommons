@@ -2,13 +2,14 @@
 using System.Text;
 using System.Reflection;
 using System.Diagnostics.CodeAnalysis;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using JoeWare.Tools;
-using JoeWareTools_UT.DTO;
-using JoeWare.Tools.Logging;
+using JWCommons.Tools;
+using JWCommonsTools_UT.DTO;
+using JWCommons.Tools.Logging;
 
-namespace JoeWareTools_UT
+namespace JWCommonsTools_UT
 {
     // ----------------------------------------------------
     /// <summary>
@@ -67,20 +68,15 @@ namespace JoeWareTools_UT
 
         // ------------------------------------------------
 
-        [TestMethod, ExpectedException(typeof(JWareEvent))]
-        public void ReadEntry_Custom_JoeWareTools_With_NULL_FileName_Throws_an_Exception()
+        [TestMethod]
+        public void Constructor_Null_Argument_Throws()
         {
             Console.Write("An Exception is expected because we are providing a NULL ConfigFile name.");
 
             // ---
             // Act
 
-            var cfg = new ConfigMan(null);
-
-            // ------
-            // Assert
-
-            Assert.Fail("Should have thrown an exception.");
+            Assert.ThrowsException<JWEvent>(() => new ConfigMan(null));
         }
 
         // ------------------------------------------------
@@ -88,7 +84,7 @@ namespace JoeWareTools_UT
         [TestMethod, 
          DeploymentItem("Test Data\\Test.config"),
          DataRow("Test.config", "TestEntry", "Custom Test Value")]
-        public void ReadEntry_Custom_JoeWareTools_ConfigMan_Reads_An_Entry_From_A_Custom_Config_File(string cfgFile, 
+        public void ReadEntry_Custom_JWCommonsTools_ConfigMan_Reads_An_Entry_From_A_Custom_Config_File(string cfgFile, 
                                                                                                      string entryName,
                                                                                                      string expected)
         {
@@ -121,7 +117,7 @@ namespace JoeWareTools_UT
         // ------------------------------------------------
 
         [TestMethod, DataRow("EntryDTO")]
-        public void GetJSONEntry_Native_JoeWareTools_ConfigMan_Deserializes_An_Entry_From_The_Native_Config_File(string entryName)
+        public void GetJSONEntry_Native_JWCommonsTools_ConfigMan_Deserializes_An_Entry_From_The_Native_Config_File(string entryName)
         {
             // -------
             // Arrange
@@ -152,7 +148,7 @@ namespace JoeWareTools_UT
                     "ReadEntryNative",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadEntry_Native_JoeWareTools_ConfigMan_Reads_An_Entry_From_The_Native_Config_File()
+        public void ReadEntry_Native_JWCommonsTools_ConfigMan_Reads_An_Entry_From_The_Native_Config_File()
         {
             // -------
             // Arrange
@@ -192,7 +188,7 @@ namespace JoeWareTools_UT
                     "ReadList",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadList_JoeWareTools_ConfigMan_Reads_A_List_Of_Entries_From_The_Config_File()
+        public void ReadList_JWCommonsTools_ConfigMan_Reads_A_List_Of_Entries_From_The_Config_File()
         {
             // -------
             // Arrange
@@ -229,7 +225,7 @@ namespace JoeWareTools_UT
                     "ReadFromKeyedListNative",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadFromKeyedList_JoeWareTools_Native_ConfigMan_Reads_A_List_Of_Entries_To_Return_The_Item_Identified_By_a_Key()
+        public void ReadFromKeyedList_JWCommonsTools_Native_ConfigMan_Reads_A_List_Of_Entries_To_Return_The_Item_Identified_By_a_Key()
         {
             // -------
             // Arrange
@@ -270,7 +266,7 @@ namespace JoeWareTools_UT
                     "ReadFromKeyedListCustom",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadFromKeyedList_JoeWareTools_Custom_ConfigMan_Reads_A_List_Of_Entries_To_Return_The_Item_Identified_By_a_Key()
+        public void ReadFromKeyedList_JWCommonsTools_Custom_ConfigMan_Reads_A_List_Of_Entries_To_Return_The_Item_Identified_By_a_Key()
         {
             // -------
             // Arrange
@@ -312,7 +308,7 @@ namespace JoeWareTools_UT
                     "ReadFromKeyedObjListCustom",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadFromKeyedObjList_JoeWareTools_Custom_ConfigMan_Reads_A_List_Of_JSON_Entries_To_Return_The_Item_Identified_By_a_Key()
+        public void ReadFromKeyedObjList_JWCommonsTools_Custom_ConfigMan_Reads_A_List_Of_JSON_Entries_To_Return_The_Item_Identified_By_a_Key()
         {
             // -------
             // Arrange
@@ -365,7 +361,7 @@ namespace JoeWareTools_UT
                     "ReadListNative",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadListLocal_JoeWareTools_ConfigMan_Reads_A_List_Of_Entries_From_The_App_Config_File()
+        public void ReadListLocal_JWCommonsTools_ConfigMan_Reads_A_List_Of_Entries_From_The_App_Config_File()
         {
             // -------
             // Arrange
@@ -411,7 +407,7 @@ namespace JoeWareTools_UT
                     "ReadObjList",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadObjList_JoeWareTools_ConfigMan_Reads_A_List_Of_JSON_Entries_From_The_App_Config_File()
+        public void ReadObjList_JWCommonsTools_ConfigMan_Reads_A_List_Of_JSON_Entries_From_The_App_Config_File()
         {
             // -------
             // Arrange
@@ -457,7 +453,7 @@ namespace JoeWareTools_UT
                     "ReadCustomObjList",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadCustomObjList_JoeWareTools_ConfigMan_Reads_A_List_Of_JSON_Entries_From_a_Custom_Config_File()
+        public void ReadCustomObjList_JWCommonsTools_ConfigMan_Reads_A_List_Of_JSON_Entries_From_a_Custom_Config_File()
         {
             // -------
             // Arrange

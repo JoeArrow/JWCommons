@@ -1,4 +1,4 @@
-﻿#region Copyright © 2017 JoeWare
+﻿#region Copyright © 2017 JWCommons
 //
 // All rights reserved. Reproduction or transmission in whole or in part, in
 // any form or by any means, electronic, mechanical, or otherwise, is prohibited
@@ -9,13 +9,13 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using JoeWare.Tools;
+using JWCommons.Tools;
 
-namespace JoeWareTools_UT
+namespace JWCommonsTools_UT
 {
     // ----------------------------------------------------
     /// <summary>
-    ///     Summary description for JoeWareTools_UT
+    ///     Summary description for JWCommonsTools_UT
     /// </summary>
 
     [TestClass]
@@ -73,7 +73,7 @@ namespace JoeWareTools_UT
                     "ParseValue",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ParseValue_JoeWareTools_Extracts_A_String_From_Within_A_Larger_String()
+        public void ParseValue_JWCommonsTools_Extracts_A_String_From_Within_A_Larger_String()
         {
             // -------
             // Arrange
@@ -113,7 +113,7 @@ namespace JoeWareTools_UT
                     "IsDistinguishedName",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void IsDistinguishedName_JoeWareTools_Determines_If_A_Given_String_Matches_The_Format_Of_A_DistinguishedName_In_LDAP()
+        public void IsDistinguishedName_JWCommonsTools_Determines_If_A_Given_String_Matches_The_Format_Of_A_DistinguishedName_In_LDAP()
         {
             // -------
             // Arrange
@@ -155,7 +155,7 @@ namespace JoeWareTools_UT
                     "IsGUID",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void IsGUID_JoeWareTools_Determines_If_A_Given_String_Matches_The_Format_Of_A_GUID()
+        public void IsGUID_JWCommonsTools_Determines_If_A_Given_String_Matches_The_Format_Of_A_GUID()
         {
             // -------
             // Arrange
@@ -197,7 +197,7 @@ namespace JoeWareTools_UT
                     "IsExcludedSSN",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void IsExcludedSSN_JoeWareTools_Determines_If_A_Given_SSN_Should_Be_Exlcuded_From_Use()
+        public void IsExcludedSSN_JWCommonsTools_Determines_If_A_Given_SSN_Should_Be_Exlcuded_From_Use()
         {
             // -------
             // Arrange
@@ -238,7 +238,7 @@ namespace JoeWareTools_UT
                     "IsDistinguishedName",
                     DataAccessMethod.Sequential),
          TestCategory("Nonpernicious"), TestMethod]
-        public void IsDistinguishedName_JoeWareTools_Determines_If_A_Given_String_Matches_The_Format_Of_A_DistinguishedName_In_LDAP()
+        public void IsDistinguishedName_JWCommonsTools_Determines_If_A_Given_String_Matches_The_Format_Of_A_DistinguishedName_In_LDAP()
         {
             // -------
             // Arrange

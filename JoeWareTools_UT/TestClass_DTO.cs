@@ -1,4 +1,4 @@
-﻿#region Copyright © 2017 JoeWare
+﻿#region Copyright © 2017 JWCommons
 //
 // All rights reserved. Reproduction or transmission in whole or in part, in
 // any form or by any means, electronic, mechanical, or otherwise, is prohibited
@@ -11,7 +11,7 @@
 /// 
 /// </summary>
 
-namespace JoeWareTools_UT
+namespace JWCommonsTools_UT
 {
     public class TestClass_DTO
     {
