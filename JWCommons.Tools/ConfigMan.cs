@@ -40,7 +40,7 @@ using JWCommons.Tools.Logging;
 
 namespace JWCommons.Tools
 {
-    public class ConfigMan
+    public class ConfigMan : IConfigMan
     {
         private XmlDocument xDoc;
 
@@ -396,7 +396,7 @@ namespace JWCommons.Tools
 
         public T GetJSONItem<T>(string itemName) where T : class
         {
-            T retVal = (T) null;
+            T retVal = (T)null;
             var objDef = AppSettings[itemName] as string;
             var serializer = new JavaScriptSerializer();
 
@@ -420,7 +420,7 @@ namespace JWCommons.Tools
                 throw evt;
             }
 
-            return (T) retVal;
+            return (T)retVal;
         }
 
         // ------------------------------------------------
@@ -447,7 +447,7 @@ namespace JWCommons.Tools
                     if(node.LocalName.Trim().Equals(elementName.Trim(), StringComparison.CurrentCultureIgnoreCase))
                     {
                         DictionarySectionHandler handler = new DictionarySectionHandler();
-                        retVal = (IDictionary) handler.Create(null, null, node);
+                        retVal = (IDictionary)handler.Create(null, null, node);
                     }
                 }
             }
