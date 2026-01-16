@@ -13,8 +13,9 @@ namespace JWCommons.Tools
 {
     public interface IConfigMan
     {
-        IDictionary AppSettings { get; }
         string FileName { get; set; }
+        IDictionary AppSettings { get; }
+        string this[string key] { get; }
 
         T GetJSONItem<T>(string itemName) where T : class;
         string ReadFromKeyedList(string listName, string key);

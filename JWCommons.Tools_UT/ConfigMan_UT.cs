@@ -142,19 +142,12 @@ namespace JWCommonsTools_UT
 
         // ------------------------------------------------
 
-        [DeploymentItem("Test Data\\ConfigMan_TD.xml"),
-         DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
-                    "|DataDirectory|\\ConfigMan_TD.xml",
-                    "ReadEntryNative",
-                    DataAccessMethod.Sequential),
-         TestMethod]
-        public void ReadEntry_Native_JWCommonsTools_ConfigMan_Reads_An_Entry_From_The_Native_Config_File()
+        [TestMethod]
+        [DataRow("TestEntry", "Native Test Value")]
+        public void ReadEntry_Native_ConfigMan(string entryName, string expected)
         {
             // -------
             // Arrange
-
-            var entryName = Convert.ToString(TestContext.DataRow["EntryName"]);
-            var expected = Convert.ToString(TestContext.DataRow["ExpectedValue"]);
 
             var cfg = new ConfigMan();
 
@@ -181,22 +174,12 @@ namespace JWCommonsTools_UT
 
         // ------------------------------------------------
 
-        [DeploymentItem("Test Data\\ConfigMan_TD.xml"),
-         DeploymentItem("Test Data\\Test.config"),
-         DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
-                    "|DataDirectory|\\ConfigMan_TD.xml",
-                    "ReadList",
-                    DataAccessMethod.Sequential),
-         TestMethod]
-        public void ReadList_JWCommonsTools_ConfigMan_Reads_A_List_Of_Entries_From_The_Config_File()
+        [TestMethod]
+        [DataRow(3, "AddedProperties", "Test Data\\Test.config", "Item 3")]
+        public void ReadList_ConfigMan(int index, string listName, string cfgFile, string expected)
         {
             // -------
             // Arrange
-
-            var index = Convert.ToInt32(TestContext.DataRow["Index"]);
-            var listName = Convert.ToString(TestContext.DataRow["ListName"]);
-            var expected = Convert.ToString(TestContext.DataRow["Expected"]);
-            var cfgFile = Convert.ToString(TestContext.DataRow["ConfigFile"]);
 
             var cfg = new ConfigMan(cfgFile);
 
@@ -218,21 +201,14 @@ namespace JWCommonsTools_UT
 
         // ------------------------------------------------
 
-        [DeploymentItem("Test Data\\ConfigMan_TD.xml"),
-         DeploymentItem("Test Data\\Test.config"),
-         DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
-                    "|DataDirectory|\\ConfigMan_TD.xml",
-                    "ReadFromKeyedListNative",
-                    DataAccessMethod.Sequential),
-         TestMethod]
-        public void ReadFromKeyedList_JWCommonsTools_Native_ConfigMan_Reads_A_List_Of_Entries_To_Return_The_Item_Identified_By_a_Key()
+        [TestMethod]
+        [DataRow("Dev", "KeyedListDup", "")]
+        [DataRow("Missing", "KeyedList", "")]
+        [DataRow("Dev", "KeyedList", "Dev Item")]
+        public void ReadFromKeyedList_ConfigMan(string key, string listName, string expected)
         {
             // -------
             // Arrange
-
-            var key = Convert.ToString(TestContext.DataRow["Key"]);
-            var expected = Convert.ToString(TestContext.DataRow["Expected"]);
-            var listName = Convert.ToString(TestContext.DataRow["ListName"]);
 
             var cfg = new ConfigMan();
 
@@ -266,7 +242,7 @@ namespace JWCommonsTools_UT
                     "ReadFromKeyedListCustom",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadFromKeyedList_JWCommonsTools_Custom_ConfigMan_Reads_A_List_Of_Entries_To_Return_The_Item_Identified_By_a_Key()
+        public void ReadFromKeyedList_Custom_ConfigMan()
         {
             // -------
             // Arrange
@@ -308,7 +284,7 @@ namespace JWCommonsTools_UT
                     "ReadFromKeyedObjListCustom",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadFromKeyedObjList_JWCommonsTools_Custom_ConfigMan_Reads_A_List_Of_JSON_Entries_To_Return_The_Item_Identified_By_a_Key()
+        public void ReadFromKeyedObjList_ConfigMan_Reads()
         {
             // -------
             // Arrange
@@ -361,7 +337,7 @@ namespace JWCommonsTools_UT
                     "ReadListNative",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadListLocal_JWCommonsTools_ConfigMan_Reads_A_List_Of_Entries_From_The_App_Config_File()
+        public void ReadListLocal_ConfigMan()
         {
             // -------
             // Arrange
@@ -407,7 +383,7 @@ namespace JWCommonsTools_UT
                     "ReadObjList",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadObjList_JWCommonsTools_ConfigMan_Reads_A_List_Of_JSON_Entries_From_The_App_Config_File()
+        public void ReadObjList_ConfigMan()
         {
             // -------
             // Arrange
@@ -453,7 +429,7 @@ namespace JWCommonsTools_UT
                     "ReadCustomObjList",
                     DataAccessMethod.Sequential),
          TestMethod]
-        public void ReadCustomObjList_JWCommonsTools_ConfigMan_Reads_A_List_Of_JSON_Entries_From_a_Custom_Config_File()
+        public void ReadCustomObjList_ConfigMan()
         {
             // -------
             // Arrange

@@ -473,5 +473,25 @@ namespace JWCommons.Tools
 
             return retVal;
         }
+
+        // ------------------------------------------------
+        /// <summary>
+        ///     Returns the value for the given key.
+        /// </summary>
+
+        public string this[string key]
+        {
+            get
+            {
+                string settingValue = null;
+
+                if(AppSettings != null)
+                {
+                    settingValue = AppSettings[key] as string;
+                }
+
+                return settingValue;
+            }
+        }
     }
 }
