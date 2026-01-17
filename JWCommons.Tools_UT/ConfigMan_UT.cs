@@ -84,9 +84,7 @@ namespace JWCommonsTools_UT
         [TestMethod, 
          DeploymentItem("Test Data\\Test.config"),
          DataRow("Test.config", "TestEntry", "Custom Test Value")]
-        public void ReadEntry_Custom_JWCommonsTools_ConfigMan_Reads_An_Entry_From_A_Custom_Config_File(string cfgFile, 
-                                                                                                     string entryName,
-                                                                                                     string expected)
+        public void ReadEntry_Custom_JWCommons(string cfgFile, string entryName, string expected)
         {
             // -------
             // Arrange
@@ -117,7 +115,7 @@ namespace JWCommonsTools_UT
         // ------------------------------------------------
 
         [TestMethod, DataRow("EntryDTO")]
-        public void GetJSONEntry_Native_JWCommonsTools_ConfigMan_Deserializes_An_Entry_From_The_Native_Config_File(string entryName)
+        public void GetJSONEntry_Native_JWCommons(string entryName)
         {
             // -------
             // Arrange
