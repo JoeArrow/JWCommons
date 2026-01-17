@@ -19,7 +19,7 @@ namespace JWCommons.Tools.Logging
 {
     [Serializable]
     [System.ComponentModel.DesignerCategory("Code")]
-    public class JWEventLog : EventLog
+    public class JWEventLog : EventLog, IJWEventLog
     {
         public string AppName { set; get; }
         public eCategory Category { set; get; }

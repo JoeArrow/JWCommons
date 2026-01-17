@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="ConfigMan.cs" />
     <Compile Include="IConfigMan.cs" />
+    <Compile Include="Logging\IJWEvent.cs" />
+    <Compile Include="Logging\IJWEventLog.cs" />
     <Compile Include="Logging\JWEvent.cs" />
     <Compile Include="Logging\eCategory.cs" />
     <Compile Include="Logging\JWEventLog.cs" />

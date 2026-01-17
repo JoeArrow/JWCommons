@@ -17,7 +17,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace JWCommons.Tools.Logging
 {
-    public class JWEvent : ApplicationException
+    public class JWEvent : ApplicationException, IJWEvent
     {
         #region Member Variables and Properties
 
@@ -44,10 +44,10 @@ namespace JWCommons.Tools.Logging
 
         // ------------------------------------------------
 
-        public JWEvent(int eventID, 
-                          string eventSource, 
-                          string message = "No Message Provided...", 
-                          Exception exp = null) 
+        public JWEvent(int eventID,
+                          string eventSource,
+                          string message = "No Message Provided...",
+                          Exception exp = null)
             : base(message, exp)
         {
             EventID = eventID;
@@ -214,7 +214,7 @@ namespace JWCommons.Tools.Logging
 
                     if(val is List<MethodParameter>)
                     {
-                        var list = (List<MethodParameter>) val;
+                        var list = (List<MethodParameter>)val;
 
                         if(list.Count > 0)
                         {
